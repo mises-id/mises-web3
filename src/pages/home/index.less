@@ -1,0 +1,65 @@
+.active{
+  font-size: 19px;
+  font-weight: bolder;
+  transition: all .2s;
+  color: #333333;
+}
+.unactive{
+  color: #666666;
+  font-size: 15px;
+}
+.createPosts{
+  right: 15px;
+  z-index: 99;
+  bottom: 30px;
+}
+.Panel{
+  padding-top: 10px;
+}
+// 生成一个背景色为#5D61FF,宽高为55px,下边距为10px的圆形
+.airdrop{
+  margin: 0 auto;
+  color: white;
+  line-height: 55px;
+  text-align: center;
+  font-size: 12px;
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(45deg, #5D61FF, #5D78FF);
+  box-shadow: 0px 5px 10px 0px rgba(93, 97, 255, 0.3);
+  border-radius: 50%;
+  font-weight: 600;
+}
+.homepage{
+  height: 100vh;
+  grid-template-rows: auto repeat(1,54px) 1fr;
+  grid-template-areas:
+      "sidebar"
+      "header"
+      "main";
+  &-tabs{
+    grid-area: header;
+  }
+  &-content{
+    grid-area: main;
+    overflow: auto;
+  }
+}
+// me
+.bg{
+  display: block;
+  width: 100%;
+  height: calc(100vw * 0.408);
+}
+.adm-list-item-content-arrow{
+  font-size: 9px;
+}
+.adm-badge-dot{
+  width: 6px;
+  height: 6px;
+  min-width: 6px;
+  border-radius: 50px;
+}
+.me-tips {
+  padding: 20px 0;
+}

@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer utilities{
+  html{
+    font-size:16px;
+  }
+  body{
+    margin:0;
+    padding:0;
+    background:white;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+  }
+  :root:root{
+    --adm-color-primary: #5D61FF;
+    --fixed-active-line-width: 9px;
+    --adm-color-weak:#eee;
+    --color-theme: #333;
+  }
+  .text-color-white{
+    color:white
+  }
+  div{
+    line-height:1
+  }
+  p{
+    margin: 0;
+    padding: 0;
+  }
+  .color-primary{
+    color:var(--color-theme)
+  }
+}
+.adm-tabs-tab{
+  padding: 16px 0 18px;
+}
+.adm-tabs-tab-list{
+  background-color: white;
+}

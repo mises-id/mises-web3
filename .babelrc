@@ -1,0 +1,21 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "chrome": "49",
+          "ios": "10"
+        }
+      }
+    ],
+    [
+      "import",
+      {
+        "libraryName": "antd-mobile",
+        "libraryDirectory": "es",
+        "style": "css"
+      }
+    ]
+  ]
+}
