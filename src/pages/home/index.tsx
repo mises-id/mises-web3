@@ -1,7 +1,7 @@
 /*
  * @Author: lmk
  * @Date: 2022-06-13 14:36:18
- * @LastEditTime: 2022-09-08 18:23:47
+ * @LastEditTime: 2022-09-09 15:14:00
  * @LastEditors: lmk
  * @Description: web3 site and extension site
  */
@@ -24,13 +24,14 @@ interface categoryParams {
   name: string;
   list?: Array<websiteParams>;
 }
+
 const Home = () => {
   const [category,setcategory] = useState<categoryParams[]>(categoryJson as unknown as categoryParams[]);
   const [activeKey, setactiveKey] = useState<string>()
   const mainElementRef = useRef<HTMLDivElement>(null)
   const sideElementRef = useRef<HTMLDivElement>(null)
-  const [hasMore, setHasMore] = useState(true)
-  const [isLoading, setIsLoading] = useState(false)
+  const [hasMore, setHasMore] = useState<boolean>(true)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const [page, setPage] = useState<number>(1)
   const [pageSize,] = useState<number>(30)
 
@@ -66,6 +67,7 @@ const Home = () => {
     }
     // eslint-disable-next-line
   }, [])
+
   useEffect(() => {
     const element = document.querySelector('.adm-side-bar-item-active')
     const rect = element?.getBoundingClientRect()
@@ -104,17 +106,18 @@ const Home = () => {
       setIsLoading(false)
     })
   }
-
   const getSideChange = (key: string) => {
     setactiveKey(`${key}`)
     document.getElementById(`anchor-${key}`)?.scrollIntoView()
-
   }
+
   return (
     <div className="container">
+
       <div className="header">
         <NavBar backArrow={false}>web3 store</NavBar>
       </div>
+
       <div className="content">
         <div className="side" ref={sideElementRef}>
           <SideBar
@@ -125,33 +128,33 @@ const Home = () => {
               ))
             }</SideBar>
         </div>
+
         <div className="main" ref={mainElementRef}>
-          <PullToRefresh
-            onRefresh={onRefresh}>
-              <div>
-                <List style={{'--border-top':'none','--border-bottom':'none'}}>
-                  {category.map(item => {
-                    return item.list?.length ? <div key={item.id}>
-                      <h3 id={`anchor-${item.id}`} className="main-title">{item.name}</h3>
-                      {
-                        item.list?.map(val=>{
-                          return <div key={val.id} className="list-item">
-                            <div className="list-item-logo">
-                              <Image src={val.logo} alt={val.title} width={40} height={40}/>
-                            </div>
-                            <div className="list-item-content">
-                              {val.title}
-                            </div>
-                          </div>
-                        })
-                      }
-                    </div> : null;
-                  })}
-                </List>
-              </div>
-              <InfiniteScroll loadMore={loadMore} hasMore={hasMore} />
+          <PullToRefresh onRefresh={onRefresh}>
+            <List style={{'--border-top':'none','--border-bottom':'none'}}>
+              {category.map(item => {
+                return item.list?.length ? <div key={item.id}>
+                  <h3 id={`anchor-${item.id}`} className="main-title">{item.name}</h3>
+                  {
+                    item.list?.map(val=>{
+                      return <a key={val.id} className="list-item" href={val.url} target="_blank" rel="noreferrer">
+                        <div className="list-item-logo">
+                          <Image src={val.logo} alt={val.title} width={40} height={40} fit="cover" style={{borderRadius: '5px'}}/>
+                        </div>
+                        <div className="list-item-content">
+                          <span>{val.title}</span>
+                          <p className="desc">description</p>
+                        </div>
+                      </a>
+                    })
+                  }
+                </div> : null;
+              })}
+            </List>
+            <InfiniteScroll loadMore={loadMore} hasMore={hasMore} />
           </PullToRefresh>
         </div>
+
       </div>
     </div>
   );

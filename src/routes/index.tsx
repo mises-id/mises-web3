@@ -1,7 +1,7 @@
 /*
  * @Author: lmk
  * @Date: 2022-05-26 12:28:24
- * @LastEditTime: 2022-09-07 15:13:41
+ * @LastEditTime: 2022-09-14 18:00:52
  * @LastEditors: lmk
  * @Description: 
  */
@@ -31,7 +31,7 @@ const Routes = () => {
     path: '/',
     element: SuspenseWrapper(Home),
   },
-  { path: '*', element: <Navigate to="/discover" replace /> }
+  { path: '*', element: <Navigate to="/" replace /> }
   ])
   return RouterList
 }

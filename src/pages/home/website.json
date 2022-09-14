@@ -38,7 +38,7 @@
         "title": "0x",
         "url": "https://www.0x.org/",
         "id": 5,
-        "logo": "https://logos.kiwibrowser.com/www.0x.org",
+        "logo": "https://logos.kiwibrowser.com/0x.org",
         "category": "DEX"
     },
     {
@@ -59,7 +59,7 @@
         "title": "Airswap",
         "url": "https://www.airswap.io/",
         "id": 8,
-        "logo": "https://logos.kiwibrowser.com/www.airswap.io",
+        "logo": "https://logos.kiwibrowser.com/airswap.io",
         "category": "DEX"
     },
     {
@@ -108,7 +108,7 @@
         "title": "Energiswap",
         "url": "https://www.energiswap.exchange/",
         "id": 15,
-        "logo": "https://logos.kiwibrowser.com/www.energiswap.exchange",
+        "logo": "https://logos.kiwibrowser.com/energiswap.exchange",
         "category": "DEX"
     },
     {
@@ -255,7 +255,7 @@
         "title": "Augur",
         "url": "https://www.augur.net/",
         "id": 36,
-        "logo": "https://logos.kiwibrowser.com/www.augur.net",
+        "logo": "https://logos.kiwibrowser.com/augur.net",
         "category": "衍生品"
     },
     {
@@ -360,7 +360,7 @@
         "title": "weiWard",
         "url": "https://www.weiward.org/",
         "id": 51,
-        "logo": "https://logos.kiwibrowser.com/www.weiward.org",
+        "logo": "https://logos.kiwibrowser.com/weiward.org",
         "category": "衍生品"
     },
     {
@@ -402,7 +402,7 @@
         "title": "Liquidity",
         "url": "https://www.liquity.org/",
         "id": 57,
-        "logo": "https://logos.kiwibrowser.com/www.liquity.org",
+        "logo": "https://logos.kiwibrowser.com/liquity.org",
         "category": "借贷"
     },
     {
@@ -451,42 +451,42 @@
         "title": "Impermax",
         "url": "https://www.impermax.finance/",
         "id": 64,
-        "logo": "https://logos.kiwibrowser.com/www.impermax.finance",
+        "logo": "https://logos.kiwibrowser.com/impermax.finance",
         "category": "借贷"
     },
     {
         "title": "Inverse Finance",
         "url": "https://www.inverse.finance/",
         "id": 65,
-        "logo": "https://logos.kiwibrowser.com/www.inverse.finance",
+        "logo": "https://logos.kiwibrowser.com/inverse.finance",
         "category": "借贷"
     },
     {
         "title": "Kava",
         "url": "https://www.kava.io/",
         "id": 66,
-        "logo": "https://logos.kiwibrowser.com/www.kava.io",
+        "logo": "https://logos.kiwibrowser.com/kava.io",
         "category": "借贷"
     },
     {
         "title": "Maple Finance",
         "url": "https://www.maple.finance/",
         "id": 67,
-        "logo": "https://logos.kiwibrowser.com/www.maple.finance",
+        "logo": "https://logos.kiwibrowser.com/maple.finance",
         "category": "借贷"
     },
     {
         "title": "Notional Finance",
         "url": "https://www.notional.finance/",
         "id": 68,
-        "logo": "https://logos.kiwibrowser.com/www.notional.finance",
+        "logo": "https://logos.kiwibrowser.com/notional.finance",
         "category": "借贷"
     },
     {
         "title": "QiDao",
         "url": "https://www.mai.finance/",
         "id": 69,
-        "logo": "https://logos.kiwibrowser.com/www.mai.finance",
+        "logo": "https://logos.kiwibrowser.com/mai.finance",
         "category": "借贷"
     },
     {
@@ -500,7 +500,7 @@
         "title": "Rari Capital",
         "url": "https://www.rari.capital/",
         "id": 71,
-        "logo": "https://logos.kiwibrowser.com/www.rari.capital",
+        "logo": "https://logos.kiwibrowser.com/rari.capital",
         "category": "借贷"
     },
     {
@@ -528,7 +528,7 @@
         "title": "Warp Finance",
         "url": "https://www.warp.finance/",
         "id": 75,
-        "logo": "https://logos.kiwibrowser.com/www.warp.finance",
+        "logo": "https://logos.kiwibrowser.com/warp.finance",
         "category": "借贷"
     },
     {
@@ -591,7 +591,7 @@
         "title": "Binance Smart Chain",
         "url": "https://www.bnbchain.org/cn/bridge",
         "id": 84,
-        "logo": "https://logos.kiwibrowser.com/www.bnbchain.org",
+        "logo": "https://logos.kiwibrowser.com/bnbchain.org",
         "category": "跨链桥"
     },
     {
@@ -605,7 +605,7 @@
         "title": "Nomad",
         "url": "https://www.nomad.xyz/",
         "id": 86,
-        "logo": "https://logos.kiwibrowser.com/www.nomad.xyz",
+        "logo": "https://logos.kiwibrowser.com/nomad.xyz",
         "category": "跨链桥"
     },
     {
@@ -640,7 +640,7 @@
         "title": "Portal Bridge",
         "url": "https://www.portalbridge.com/",
         "id": 91,
-        "logo": "https://logos.kiwibrowser.com/www.portalbridge.com",
+        "logo": "https://logos.kiwibrowser.com/portalbridge.com",
         "category": "跨链桥"
     },
     {
@@ -717,7 +717,7 @@
         "title": "Convex",
         "url": "https://www.convexfinance.com/",
         "id": 102,
-        "logo": "https://logos.kiwibrowser.com/www.convexfinance.com",
+        "logo": "https://logos.kiwibrowser.com/convexfinance.com",
         "category": "资产管理"
     },
     {
@@ -829,7 +829,7 @@
         "title": ".BIT",
         "url": "https://www.did.id/",
         "id": 118,
-        "logo": "https://logos.kiwibrowser.com/www.did.id",
+        "logo": "https://logos.kiwibrowser.com/did.id",
         "category": "DID"
     },
     {
@@ -864,7 +864,7 @@
         "title": "Coingecko",
         "url": "https://www.coingecko.com/",
         "id": 123,
-        "logo": "https://logos.kiwibrowser.com/www.coingecko.com",
+        "logo": "https://logos.kiwibrowser.com/coingecko.com",
         "category": "综合数据"
     },
     {
@@ -885,7 +885,7 @@
         "title": "The Block Data",
         "url": "https://www.theblock.co/",
         "id": 126,
-        "logo": "https://logos.kiwibrowser.com/www.theblock.co",
+        "logo": "https://logos.kiwibrowser.com/theblock.co",
         "category": "综合数据"
     },
     {
@@ -927,7 +927,7 @@
         "title": "CryptoCompare",
         "url": "https://www.cryptocompare.com/",
         "id": 132,
-        "logo": "https://logos.kiwibrowser.com/www.cryptocompare.com",
+        "logo": "https://logos.kiwibrowser.com/cryptocompare.com",
         "category": "综合数据"
     },
     {
@@ -941,7 +941,7 @@
         "title": "Footprint",
         "url": "https://www.footprint.network/",
         "id": 134,
-        "logo": "https://logos.kiwibrowser.com/www.footprint.network",
+        "logo": "https://logos.kiwibrowser.com/footprint.network",
         "category": "综合数据"
     },
     {
@@ -955,7 +955,7 @@
         "title": "Orbiter",
         "url": "https://www.orbiter.finance/data",
         "id": 136,
-        "logo": "https://logos.kiwibrowser.com/www.orbiter.finance",
+        "logo": "https://logos.kiwibrowser.com/orbiter.finance",
         "category": "综合数据"
     },
     {
@@ -983,14 +983,14 @@
         "title": "DeFi Pulse",
         "url": "https://www.defipulse.com/",
         "id": 140,
-        "logo": "https://logos.kiwibrowser.com/www.defipulse.com",
+        "logo": "https://logos.kiwibrowser.com/defipulse.com",
         "category": "DeFi工具"
     },
     {
         "title": "Dextools",
         "url": "https://www.dextools.io/app/",
         "id": 141,
-        "logo": "https://logos.kiwibrowser.com/www.dextools.io",
+        "logo": "https://logos.kiwibrowser.com/dextools.io",
         "category": "DeFi工具"
     },
     {
@@ -1018,7 +1018,7 @@
         "title": "Insurace",
         "url": "https://www.insurace.io/",
         "id": 145,
-        "logo": "https://logos.kiwibrowser.com/www.insurace.io",
+        "logo": "https://logos.kiwibrowser.com/insurace.io",
         "category": "保险"
     },
     {
@@ -1039,7 +1039,7 @@
         "title": "Solace",
         "url": "https://www.solace.fi/",
         "id": 148,
-        "logo": "https://logos.kiwibrowser.com/www.solace.fi",
+        "logo": "https://logos.kiwibrowser.com/solace.fi",
         "category": "保险"
     },
     {
@@ -1081,7 +1081,7 @@
         "title": "TokenPocket",
         "url": "https://www.tokenpocket.pro/",
         "id": 154,
-        "logo": "https://logos.kiwibrowser.com/www.tokenpocket.pro",
+        "logo": "https://logos.kiwibrowser.com/tokenpocket.pro",
         "category": "钱包资管"
     },
     {
@@ -1116,7 +1116,7 @@
         "title": "Gem",
         "url": "https://www.gem.xyz/",
         "id": 159,
-        "logo": "https://logos.kiwibrowser.com/www.gem.xyz",
+        "logo": "https://logos.kiwibrowser.com/gem.xyz",
         "category": "NFT"
     },
     {
@@ -1137,7 +1137,7 @@
         "title": "NFTtrader",
         "url": "https://www.nfttrader.io/",
         "id": 162,
-        "logo": "https://logos.kiwibrowser.com/www.nfttrader.io",
+        "logo": "https://logos.kiwibrowser.com/nfttrader.io",
         "category": "NFT"
     },
     {
@@ -1158,14 +1158,14 @@
         "title": "Genie",
         "url": "https://www.genie.xyz/",
         "id": 165,
-        "logo": "https://logos.kiwibrowser.com/www.genie.xyz",
+        "logo": "https://logos.kiwibrowser.com/genie.xyz",
         "category": "NFT"
     },
     {
         "title": "Benddao",
         "url": "https://www.benddao.xyz/",
         "id": 166,
-        "logo": "https://logos.kiwibrowser.com/www.benddao.xyz",
+        "logo": "https://logos.kiwibrowser.com/benddao.xyz",
         "category": "NFT"
     },
     {
@@ -1221,14 +1221,14 @@
         "title": "Traits Sniper",
         "url": "https://www.traitsniper.com/",
         "id": 174,
-        "logo": "https://logos.kiwibrowser.com/www.traitsniper.com",
+        "logo": "https://logos.kiwibrowser.com/traitsniper.com",
         "category": "NFT工具"
     },
     {
         "title": "NFTscan",
         "url": "https://www.nftscan.com/",
         "id": 175,
-        "logo": "https://logos.kiwibrowser.com/www.nftscan.com",
+        "logo": "https://logos.kiwibrowser.com/nftscan.com",
         "category": "NFT工具"
     },
     {
@@ -1256,14 +1256,14 @@
         "title": "My Metadata",
         "url": "https://www.mymetadata.io/",
         "id": 179,
-        "logo": "https://logos.kiwibrowser.com/www.mymetadata.io",
+        "logo": "https://logos.kiwibrowser.com/mymetadata.io",
         "category": "GameFi"
     },
     {
         "title": "Play To Earn",
         "url": "https://www.playtoearn.online/",
         "id": 180,
-        "logo": "https://logos.kiwibrowser.com/www.playtoearn.online",
+        "logo": "https://logos.kiwibrowser.com/playtoearn.online",
         "category": "GameFi"
     },
     {
@@ -1284,7 +1284,7 @@
         "title": "Tally",
         "url": "https://www.tally.xyz/",
         "id": 183,
-        "logo": "https://logos.kiwibrowser.com/www.tally.xyz",
+        "logo": "https://logos.kiwibrowser.com/tally.xyz",
         "category": "DAO"
     },
     {
@@ -1417,14 +1417,14 @@
         "title": "Minds",
         "url": "https://www.minds.com/token",
         "id": 202,
-        "logo": "https://logos.kiwibrowser.com/www.minds.com",
+        "logo": "https://logos.kiwibrowser.com/minds.com",
         "category": "社交"
     },
     {
         "title": "HUDDLN",
         "url": "https://www.huddln.io/",
         "id": 203,
-        "logo": "https://logos.kiwibrowser.com/www.huddln.io",
+        "logo": "https://logos.kiwibrowser.com/huddln.io",
         "category": "社交"
     },
     {
@@ -1464,14 +1464,14 @@
         "title": "Binance",
         "url": "https://www.binance.com/",
         "id": 209,
-        "logo": "https://logos.kiwibrowser.com/www.binance.com",
+        "logo": "https://logos.kiwibrowser.com/binance.com",
         "category": "CEX"
     },
     {
         "title": "OKX",
         "url": "https://www.okx.com/",
         "id": 210,
-        "logo": "https://logos.kiwibrowser.com/www.okx.com",
+        "logo": "https://logos.kiwibrowser.com/okx.com",
         "category": "CEX"
     },
     {
@@ -1492,21 +1492,21 @@
         "title": "Gate",
         "url": "https://www.gate.io/",
         "id": 213,
-        "logo": "https://logos.kiwibrowser.com/www.gate.io",
+        "logo": "https://logos.kiwibrowser.com/gate.io",
         "category": "CEX"
     },
     {
         "title": "抹茶",
         "url": "https://www.mexc.com/",
         "id": 214,
-        "logo": "https://logos.kiwibrowser.com/www.mexc.com",
+        "logo": "https://logos.kiwibrowser.com/mexc.com",
         "category": "CEX"
     },
     {
         "title": "Coinbase",
         "url": "https://www.coinbase.com/",
         "id": 215,
-        "logo": "https://logos.kiwibrowser.com/www.coinbase.com",
+        "logo": "https://logos.kiwibrowser.com/coinbase.com",
         "category": "CEX"
     },
     {
@@ -1527,7 +1527,7 @@
         "title": "ethernode.org",
         "url": "https://www.ethernodes.org/",
         "id": 218,
-        "logo": "https://logos.kiwibrowser.com/www.ethernodes.org",
+        "logo": "https://logos.kiwibrowser.com/ethernodes.org",
         "category": "矿业"
     },
     {
@@ -1541,7 +1541,7 @@
         "title": "f2pool",
         "url": "https://www.f2pool.com/miners",
         "id": 220,
-        "logo": "https://logos.kiwibrowser.com/www.f2pool.com",
+        "logo": "https://logos.kiwibrowser.com/f2pool.com",
         "category": "矿业"
     },
     {
@@ -1562,21 +1562,21 @@
         "title": "Bscscan",
         "url": "https://www.bscscan.com/",
         "id": 223,
-        "logo": "https://logos.kiwibrowser.com/www.bscscan.com",
+        "logo": "https://logos.kiwibrowser.com/bscscan.com",
         "category": "区块链浏览器"
     },
     {
         "title": "Blockchain.com",
         "url": "https://www.blockchain.com/",
         "id": 224,
-        "logo": "https://logos.kiwibrowser.com/www.blockchain.com",
+        "logo": "https://logos.kiwibrowser.com/blockchain.com",
         "category": "区块链浏览器"
     },
     {
         "title": "OKLink",
         "url": "https://www.oklink.com/",
         "id": 225,
-        "logo": "https://logos.kiwibrowser.com/www.oklink.com",
+        "logo": "https://logos.kiwibrowser.com/oklink.com",
         "category": "区块链浏览器"
     },
     {
@@ -1646,14 +1646,14 @@
         "title": "Optimism",
         "url": "https://www.optimism.io/apps/all",
         "id": 235,
-        "logo": "https://logos.kiwibrowser.com/www.optimism.io",
+        "logo": "https://logos.kiwibrowser.com/optimism.io",
         "category": "生态汇总"
     },
     {
         "title": "zkRollups",
         "url": "https://www.zkrollups.xyz/",
         "id": 236,
-        "logo": "https://logos.kiwibrowser.com/www.zkrollups.xyz",
+        "logo": "https://logos.kiwibrowser.com/zkrollups.xyz",
         "category": "生态汇总"
     },
     {
@@ -1695,21 +1695,21 @@
         "title": "Aptos",
         "url": "https://www.aptos.systems/",
         "id": 242,
-        "logo": "https://logos.kiwibrowser.com/www.aptos.systems",
+        "logo": "https://logos.kiwibrowser.com/aptos.systems",
         "category": "生态汇总"
     },
     {
         "title": "Polkaproject",
         "url": "https://www.polkaproject.com/#/",
         "id": 243,
-        "logo": "https://logos.kiwibrowser.com/www.polkaproject.com",
+        "logo": "https://logos.kiwibrowser.com/polkaproject.com",
         "category": "生态汇总"
     },
     {
         "title": "Cardano",
         "url": "https://www.cardanocube.io/cardano-ecosystem-interactive-map",
         "id": 244,
-        "logo": "https://logos.kiwibrowser.com/www.cardanocube.io",
+        "logo": "https://logos.kiwibrowser.com/cardanocube.io",
         "category": "生态汇总"
     },
     {
@@ -1758,7 +1758,7 @@
         "title": "Dapp.com",
         "url": "https://www.dapp.com/",
         "id": 251,
-        "logo": "https://logos.kiwibrowser.com/www.dapp.com",
+        "logo": "https://logos.kiwibrowser.com/dapp.com",
         "category": "Dapp"
     },
     {
@@ -1772,14 +1772,14 @@
         "title": "ZK",
         "url": "https://www.zkrollups.xyz/",
         "id": 253,
-        "logo": "https://logos.kiwibrowser.com/www.zkrollups.xyz",
+        "logo": "https://logos.kiwibrowser.com/zkrollups.xyz",
         "category": "Layer2"
     },
     {
         "title": "Dextools",
         "url": "https://www.dextools.io/app/",
         "id": 254,
-        "logo": "https://logos.kiwibrowser.com/www.dextools.io",
+        "logo": "https://logos.kiwibrowser.com/dextools.io",
         "category": "K线工具"
     },
     {
@@ -1800,14 +1800,14 @@
         "title": "Geckoterminal",
         "url": "https://www.geckoterminal.com/",
         "id": 257,
-        "logo": "https://logos.kiwibrowser.com/www.geckoterminal.com",
+        "logo": "https://logos.kiwibrowser.com/geckoterminal.com",
         "category": "K线工具"
     },
     {
         "title": "Tradingview",
         "url": "https://www.tradingview.com/",
         "id": 258,
-        "logo": "https://logos.kiwibrowser.com/www.tradingview.com",
+        "logo": "https://logos.kiwibrowser.com/tradingview.com",
         "category": "K线工具"
     }
 ]

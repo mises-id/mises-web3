@@ -1,11 +1,10 @@
 /*
  * @Author: lmk
  * @Date: 2022-06-13 15:02:32
- * @LastEditTime: 2022-09-08 18:17:45
+ * @LastEditTime: 2022-09-09 10:19:15
  * @LastEditors: lmk
  * @Description: 
  */
-import { websiteParams } from '@/pages/home';
 import websiteJson from '@/pages/home/website.json';
 
 export function urlToJson(url = window.location.href) {
@@ -45,8 +44,15 @@ export function isMisesBrowser() {
     -1
   );
 }
+function sleep(ms: number) {
+  return new Promise<void>((resolve, reject) => {
+    setTimeout(() => {
+      resolve()
+    }, ms);
+  })
+}
 // 临时的
-export function getData<T>({pageNumber, pageSize}:{pageNumber: number, pageSize: number}={pageNumber:1, pageSize: 10}): Promise<{
+export async function getData<T>({pageNumber, pageSize}:{pageNumber: number, pageSize: number}={pageNumber:1, pageSize: 10}): Promise<{
   total: number;
   pageNumber: number;
   pageSize: number;
@@ -55,10 +61,11 @@ export function getData<T>({pageNumber, pageSize}:{pageNumber: number, pageSize:
   const endNumber = pageSize * pageNumber
   const startNumber = (pageNumber - 1) * pageSize
   const newData = [...websiteJson]
-  return Promise.resolve({
+  await sleep(200)
+  return {
     total: websiteJson.length,
     pageNumber,
     pageSize,
     records: newData.slice(startNumber, endNumber) as unknown as T[]
-  })
+  }
 }

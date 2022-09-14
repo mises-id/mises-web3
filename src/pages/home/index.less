@@ -32,12 +32,26 @@
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  color: var(--theme-color);
+  text-decoration: none;
   .list-item-logo{
     width: 40px;
     flex: none;
   }
+  
   .list-item-content{
     flex: 1;
     padding-left: 10px;
+    font-size: 16px;
+    width: 0;
+    .desc{
+      font-size: 12px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      margin-top: 5px;
+      color: #999;
+      padding-right: 20px;
+    }
   }
 }
