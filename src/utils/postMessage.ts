@@ -1,7 +1,7 @@
 /*
  * @Author: lmk
  * @Date: 2021-07-19 22:38:14
- * @LastEditTime: 2022-06-20 14:51:45
+ * @LastEditTime: 2022-09-07 15:19:42
  * @LastEditors: lmk
  * @Description: to extension
  */
@@ -9,7 +9,7 @@
 import Web3 from "web3";
 import { isMisesBrowser, urlToJson } from ".";
 
-import { signin } from "@/api/user";
+// import { signin } from "@/api/user";
 import { Modal } from "antd-mobile";
 export default class MisesExtensionController {
   web3: any;
@@ -285,10 +285,10 @@ export default class MisesExtensionController {
       // const sign = res.mises_id+nonce;
       // await this.web3.eth.personal.sign(sign,res.accounts[0]) // show sign pop
       // store.dispatch(setUserAuth(res.auth));
-      const data = await signin({
-        provider: "mises",
-        user_authz: { auth: res.auth },
-      });
+      // const data = await signin({
+      //   provider: "mises",
+      //   user_authz: { auth: res.auth },
+      // });
       // data.token && store.dispatch(setUserToken(data.token));
       return Promise.resolve();
     } catch (error:any) {
