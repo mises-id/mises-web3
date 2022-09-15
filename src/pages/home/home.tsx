@@ -1,14 +1,14 @@
 /*
  * @Author: lmk
  * @Date: 2022-06-13 14:36:18
- * @LastEditTime: 2022-09-14 18:00:23
+ * @LastEditTime: 2022-09-15 14:26:51
  * @LastEditors: lmk
  * @Description: web3 site and extension site
  */
 import { getCategory, getData} from "@/api/web3sites";
 import Loading from "@/components/pageLoading";
 import { useThrottleFn } from "ahooks";
-import { Image, InfiniteScroll, List, NavBar, PullToRefresh, Tabs } from "antd-mobile";
+import { Image, InfiniteScroll, List, NavBar, Tabs } from "antd-mobile";
 import React, { useEffect, useRef, useState } from "react";
 import "./home.less";
 export interface websiteParams {
@@ -142,10 +142,10 @@ const Home = () => {
       }
     }
   }
-  const onRefresh = async () => {
-    if(isLoading) return;
-    setIsLoading(true)
-  }
+  // const onRefresh = async () => {
+  //   if(isLoading) return;
+  //   setIsLoading(true)
+  // }
   const getSideChange = (key: string) => {
     // const categoryIndex = category.findIndex(c => c.id === key);
     // if(categoryIndex>-1){
