@@ -1,14 +1,14 @@
 /*
  * @Author: lmk
  * @Date: 2022-06-13 14:36:18
- * @LastEditTime: 2022-09-15 19:32:46
+ * @LastEditTime: 2022-09-16 16:22:23
  * @LastEditors: lmk
  * @Description: web3 site and extension site
  */
 import { getCategory, getData } from "@/api/web3sites";
 import Loading from "@/components/pageLoading";
 import { useThrottleFn } from "ahooks";
-import { Image, InfiniteScroll, List, NavBar, PullToRefresh, Tabs } from "antd-mobile";
+import { Image, InfiniteScroll, List, NavBar, Popup, PullToRefresh, Tabs } from "antd-mobile";
 import React, { useEffect, useRef, useState } from "react";
 import "./home.less";
 export interface websiteParams {
@@ -41,6 +41,7 @@ const Home = () => {
   const [hasMore, setHasMore] = useState<boolean>(true)
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [isDisabled, setIsDisabled] = useState<boolean>(false)
+  const [visible, setVisible] = useState<boolean>(false)
   const topBarHeight = 97
   const pageSize = 30;
   const defalutParams = {
@@ -168,9 +169,9 @@ const Home = () => {
     }
   }
   const getSideChange = (key: string) => {
-    if(isLoading) return
-    const hasEmptyCategory = categoryListParams.length=== category.length;
-    if(hasEmptyCategory){
+    if (isLoading) return
+    const hasEmptyCategory = categoryListParams.length === category.length;
+    if (hasEmptyCategory) {
       document.getElementById(`anchor-${key}`)?.scrollIntoView()
       window.scrollTo({ top: window.scrollY - 90 })
       setIsDisabled(true)
@@ -193,21 +194,28 @@ const Home = () => {
     <div className="container">
       <div className="top-bar">
         <div className="header">
-          <NavBar backArrow={false}>web3 store{activeKeyIndex}</NavBar>
+          <NavBar backArrow={false}>Web3 Sites</NavBar>
         </div>
 
         <div className="side" ref={sideElementRef}>
           <Tabs
             activeKey={activeKey}
+            activeLineMode="fixed"
+            style={{
+              "--content-padding": "0",
+              "--active-line-border-radius": "4px",
+              "--active-line-height": "4px",
+            }}
             onChange={getSideChange}>{
               category.map(item => (
                 <Tabs.Tab key={`${item.id}`} title={item.name} />
               ))
             }</Tabs>
+          <Image src="./images/open.png" width={12} height={12} onClick={() => setVisible(true)} />
         </div>
       </div>
 
-      <div className="main" ref={mainElementRef}>
+      <div className="main" id="main" ref={mainElementRef}>
 
         <PullToRefresh
           onRefresh={onRefresh}
@@ -218,14 +226,14 @@ const Home = () => {
           pullingText="">
           <List style={{ '--border-top': 'none', '--border-bottom': 'none' }}>
             {categoryListParams.map((item) => {
-              return <div key={item.id}>
+              return <div key={item.id} className="category-item">
                 <h3 id={`anchor-${item.id}`} className="main-title">{item.name}</h3>
                 <div className="website-container">
                   {
                     item.list?.map((val, index) => {
                       return <a key={index} className="list-item" href={val.url} target="_blank" rel="noreferrer">
                         <div className="list-item-logo">
-                          <Image src={val.logo} alt={val.title} width={35} height={35} fit="cover" style={{ borderRadius: '5px' }} />
+                          <Image src={val.logo} alt={val.title} width={40} height={40} fit="cover" style={{ borderRadius: '50px' }} />
                         </div>
                         <div className="list-item-content">
                           <span>{val.title}</span>
@@ -240,8 +248,43 @@ const Home = () => {
           </List>
           {hasMore && <InfiniteScroll loadMore={() => loadMore()} hasMore={hasMore} />}
         </PullToRefresh>
-
       </div>
+      <Popup
+        visible={visible}
+        onMaskClick={() => {
+          setVisible(false)
+        }}
+        position='top'
+        maskStyle={{
+          top: '46px',
+          background: 'rgba(0, 0, 0, 0.75)',
+        }}
+        bodyStyle={{
+          borderBottomLeftRadius: '15px',
+          borderBottomRightRadius: '15px',
+          top: '46px',
+          paddingBottom:'25px',
+          minHeight: '40px',
+          boxSizing: 'border-box'
+        }}>
+        <div className="select-header">
+          <span>Select</span>
+          <Image src="./images/close.png" width={9} height={9} onClick={() => {
+            setVisible(false)
+          }} />
+        </div>
+        <div className="pop-category-box">
+          {category.map(val => {
+            return <div key={val.id} className={`pop-category-item ${activeKey === val.id ? 'active' : ''}`}
+              onClick={() => {
+                getSideChange(val.id);
+                setVisible(false)
+              }}>
+              <span>{val.name}</span>
+            </div>
+          })}
+        </div>
+      </Popup>
     </div>
   );
 };

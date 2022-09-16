@@ -15,6 +15,7 @@
     --adm-color-primary: #5D61FF;
     --fixed-active-line-width: 9px;
     --color-theme: #333;
+    --adm-color-border: #F5F5F5;
   }
   .text-color-white{
     color:white
@@ -35,4 +36,14 @@
 }
 .adm-tabs-tab-list{
   background-color: white;
+}
+.adm-tabs-tab{
+  font-size: 14px;
+  font-weight: 400;
+  color: #666666;
+}
+.adm-tabs-tab.adm-tabs-tab-active{
+  font-size: 16px;
+  font-weight: bold;
+  color: #333333;
 }
