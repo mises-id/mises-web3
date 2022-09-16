@@ -1,7 +1,7 @@
 /*
  * @Author: lmk
  * @Date: 2022-06-13 14:36:18
- * @LastEditTime: 2022-09-16 16:22:23
+ * @LastEditTime: 2022-09-16 19:41:16
  * @LastEditors: lmk
  * @Description: web3 site and extension site
  */
@@ -211,7 +211,9 @@ const Home = () => {
                 <Tabs.Tab key={`${item.id}`} title={item.name} />
               ))
             }</Tabs>
-          <Image src="./images/open.png" width={12} height={12} onClick={() => setVisible(true)} />
+          <Image src="./images/open.png"
+            lazy={false}
+           width={12} height={12} onClick={() => setVisible(true)} />
         </div>
       </div>
 
@@ -269,7 +271,8 @@ const Home = () => {
         }}>
         <div className="select-header">
           <span>Select</span>
-          <Image src="./images/close.png" width={9} height={9} onClick={() => {
+          <Image src="./images/close.png"
+            lazy={false} width={9} height={9} onClick={() => {
             setVisible(false)
           }} />
         </div>
