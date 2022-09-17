@@ -1,7 +1,7 @@
 /*
  * @Author: lmk
  * @Date: 2022-05-05 20:50:25
- * @LastEditTime: 2022-09-14 18:02:09
+ * @LastEditTime: 2022-09-17 18:05:54
  * @LastEditors: lmk
  * @Description:
  */
@@ -10,12 +10,15 @@ import axios, { AxiosResponse, AxiosRequestConfig } from 'axios';
 const headers:{[key: string]: string} = {
   'Content-Type': 'application/json'
 }
-if(process.env.HTTPHEADERS){
-  headers['Mises-Env'] = process.env.HTTPHEADERS
-}
+const istest = process.env.REACT_APP_NODE_ENV==='test'
+// if(istest){
+//   headers['Mises-Env'] = 'development'
+// }
+console.log(process.env)
+const baseURL = istest ? 'https://api.test.mises.site/api/v1/' : 'https://api.alb.mises.site/api/v1/'
 const request = axios.create({
   headers,
-  baseURL: process.env.HTTP,
+  baseURL,
   timeout: 10000,
 });
 
