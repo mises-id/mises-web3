@@ -7,10 +7,15 @@
  */
 import { Toast } from 'antd-mobile';
 import axios, { AxiosResponse, AxiosRequestConfig } from 'axios';
-
+const headers:{[key: string]: string} = {
+  'Content-Type': 'application/json'
+}
+if(process.env.HTTPHEADERS){
+  headers['Mises-Env'] = process.env.HTTPHEADERS
+}
 const request = axios.create({
-  headers: { 'Content-Type': 'application/json' },
-  baseURL: 'https://api.alb.mises.site/api/v1/',
+  headers,
+  baseURL: process.env.HTTP,
   timeout: 10000,
 });
 

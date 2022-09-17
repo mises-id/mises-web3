@@ -38,6 +38,7 @@
   "scripts": {
     "start": "PORT=7777 craco start",
     "build": "craco build",
+    "build:test": "craco build --mode test",
     "test": "craco test",
     "eject": "craco eject",
     "css": "npx tailwindcss -i ./src/styles/tailwindcss.css -o ./src/styles/global.css --watch"
