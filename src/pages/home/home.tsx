@@ -1,7 +1,7 @@
 /*
  * @Author: lmk
  * @Date: 2022-06-13 14:36:18
- * @LastEditTime: 2022-09-16 19:41:16
+ * @LastEditTime: 2022-09-19 11:28:15
  * @LastEditors: lmk
  * @Description: web3 site and extension site
  */
@@ -73,17 +73,34 @@ const Home = () => {
     setactiveKeyIndex(index)
     return index
   }
+  const setcategoryLayout = (res: categoryParams[]) => {
+    setactiveKey(res[0].id)
+    setactiveRequestKey(res[0].id)
+    setcategoryListParams([{
+      ...defalutParams,
+      currentKeyIndex: 0,
+      ...res[0]
+    }])
+    setcategory(res)
+  }
   useEffect(() => {
+    const getCategoryCache = localStorage.getItem('category')
+    let localCategoryCache: categoryParams[] = []
+    if(getCategoryCache){
+      localCategoryCache = JSON.parse(getCategoryCache)
+      setcategoryLayout(localCategoryCache)
+    }
     getCategory().then((res) => {
       if (Array.isArray(res) && res.length > 0) {
-        setactiveKey(res[0].id)
-        setactiveRequestKey(res[0].id)
-        setcategoryListParams([{
-          ...defalutParams,
-          currentKeyIndex: 0,
-          ...res[0]
-        }])
-        setcategory(res)
+        if(Array.isArray(res) && JSON.stringify(res) !== getCategoryCache){
+          // update category cache
+          localStorage.setItem('category', JSON.stringify(res))
+          if(localCategoryCache.length===0 || localCategoryCache[0]?.id!==res[0].id){
+            setcategoryLayout(res)
+          }
+        }
+        
+        // setcategoryLayout(res)
       }
     })
     // eslint-disable-next-line
@@ -174,6 +191,7 @@ const Home = () => {
     if (hasEmptyCategory) {
       document.getElementById(`anchor-${key}`)?.scrollIntoView()
       window.scrollTo({ top: window.scrollY - 90 })
+      setactiveKey(key)
       setIsDisabled(true)
       return;
     }
@@ -196,27 +214,26 @@ const Home = () => {
         <div className="header">
           <NavBar backArrow={false}>Web3 Sites</NavBar>
         </div>
-
-        <div className="side" ref={sideElementRef}>
-          <Tabs
-            activeKey={activeKey}
-            activeLineMode="fixed"
-            style={{
-              "--content-padding": "0",
-              "--active-line-border-radius": "4px",
-              "--active-line-height": "4px",
-            }}
-            onChange={getSideChange}>{
-              category.map(item => (
-                <Tabs.Tab key={`${item.id}`} title={item.name} />
-              ))
-            }</Tabs>
-          <Image src="./images/open.png"
-            lazy={false}
-           width={12} height={12} onClick={() => setVisible(true)} />
-        </div>
       </div>
 
+      <div className="side" ref={sideElementRef}>
+        <Tabs
+          activeKey={activeKey}
+          activeLineMode="fixed"
+          style={{
+            "--content-padding": "0",
+            "--active-line-border-radius": "4px",
+            "--active-line-height": "4px",
+          }}
+          onChange={getSideChange}>{
+            category.map(item => (
+              <Tabs.Tab key={`${item.id}`} title={item.name} />
+            ))
+          }</Tabs>
+        <Image src="./images/open.png"
+          lazy={false}
+          width={12} height={12} onClick={() => setVisible(true)} />
+      </div>
       <div className="main" id="main" ref={mainElementRef}>
 
         <PullToRefresh
