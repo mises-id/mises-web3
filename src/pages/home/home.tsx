@@ -1,7 +1,7 @@
 /*
  * @Author: lmk
  * @Date: 2022-06-13 14:36:18
- * @LastEditTime: 2022-09-21 14:43:57
+ * @LastEditTime: 2022-09-21 17:42:52
  * @LastEditors: lmk
  * @Description: web3 site and extension site
  */
@@ -133,7 +133,6 @@ const Home = () => {
         // get next category
         const index = currentCategary.currentKeyIndex + 1;
         const nextCategoryItem = category[index];
-
         if (!nextCategoryItem) setHasMore(false);
         if (nextCategoryItem) {
           setactiveRequestKey(nextCategoryItem.id);
@@ -170,7 +169,7 @@ const Home = () => {
     // setIsLoading(true)
     const preCategory = category[activeKeyIndex - 1]
     if (preCategory) {
-      if (!hasMore) setHasMore(true);
+      // if (!hasMore) setHasMore(true);
       setactiveKey(preCategory.id)
       setactiveRequestKey(preCategory.id)
       findActiveKeyIndex(preCategory.id)
@@ -263,7 +262,7 @@ const Home = () => {
                     item.list?.map((val, index) => {
                       return <a key={index} className="list-item" href={val.url} target="_blank" rel="noreferrer">
                         <div className="list-item-logo">
-                          <Image src={val.logo} alt={val.title} width={40} height={40} fit="contain" style={{ borderRadius: '5px' }} />
+                          <Image src={val.logo} alt={val.title} width={40} height={40} fit="contain" style={{ borderRadius: '50px' }} />
                         </div>
                         <div className="list-item-content">
                           <span>{val.title}</span>
