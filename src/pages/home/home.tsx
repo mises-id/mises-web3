@@ -1,7 +1,7 @@
 /*
  * @Author: lmk
  * @Date: 2022-06-13 14:36:18
- * @LastEditTime: 2022-09-19 11:28:15
+ * @LastEditTime: 2022-09-21 14:43:57
  * @LastEditors: lmk
  * @Description: web3 site and extension site
  */
@@ -23,6 +23,7 @@ interface categoryParams {
   id: string;
   type_string: 'web3' | 'extension';
   name: string;
+  shorter_name: string;
 }
 interface categoryListType extends categoryParams {
   pageNum: number;
@@ -206,6 +207,14 @@ const Home = () => {
       ...categoryItem,
     }])
   }
+  const defaultTop = 46;
+  const headerHeight = 50;
+  const [top,setTop] = useState<number>(defaultTop)
+  const toggleVisible = ()=>{
+    const position = window.scrollY<headerHeight ? defaultTop + (headerHeight - window.scrollY) : defaultTop
+    setTop(position)
+    setVisible(!visible)
+  }
   if (!activeKey) return <Loading />
 
   return (
@@ -227,12 +236,14 @@ const Home = () => {
           }}
           onChange={getSideChange}>{
             category.map(item => (
-              <Tabs.Tab key={`${item.id}`} title={item.name} />
+              <Tabs.Tab key={`${item.id}`} title={item.shorter_name || item.name} />
             ))
           }</Tabs>
-        <Image src="./images/open.png"
+        <div className="show-menu"  onClick={toggleVisible}>
+          <Image src="./images/open.png"
           lazy={false}
-          width={12} height={12} onClick={() => setVisible(true)} />
+          width={12} height={12} />
+        </div>
       </div>
       <div className="main" id="main" ref={mainElementRef}>
 
@@ -252,7 +263,7 @@ const Home = () => {
                     item.list?.map((val, index) => {
                       return <a key={index} className="list-item" href={val.url} target="_blank" rel="noreferrer">
                         <div className="list-item-logo">
-                          <Image src={val.logo} alt={val.title} width={40} height={40} fit="cover" style={{ borderRadius: '50px' }} />
+                          <Image src={val.logo} alt={val.title} width={40} height={40} fit="contain" style={{ borderRadius: '5px' }} />
                         </div>
                         <div className="list-item-content">
                           <span>{val.title}</span>
@@ -275,13 +286,13 @@ const Home = () => {
         }}
         position='top'
         maskStyle={{
-          top: '46px',
+          top: `${top}px`,
           background: 'rgba(0, 0, 0, 0.75)',
         }}
         bodyStyle={{
           borderBottomLeftRadius: '15px',
           borderBottomRightRadius: '15px',
-          top: '46px',
+          top: `${top}px`,
           paddingBottom:'25px',
           minHeight: '40px',
           boxSizing: 'border-box'
