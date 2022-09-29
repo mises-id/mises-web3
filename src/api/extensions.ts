@@ -1,7 +1,7 @@
 /*
  * @Author: lmk
  * @Date: 2022-09-14 15:01:37
- * @LastEditTime: 2022-09-22 14:34:47
+ * @LastEditTime: 2022-09-28 17:31:16
  * @LastEditors: lmk
  * @Description: 
  */
@@ -9,7 +9,7 @@ import request from "@/utils/request";
 
 export function getCategory(){
   return request({
-    url: 'website_category/list',
+    url: 'extensions_category/list', 
   })
 }
 export interface categoryListRequest{
@@ -19,7 +19,7 @@ export interface categoryListRequest{
 }
 export function getData(params: categoryListRequest){
   return request({
-    url: 'website/page',
+    url: 'extensions/page',
     params
   })
 }
