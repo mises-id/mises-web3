@@ -1,9 +1,9 @@
 /*
  * @Author: lmk
  * @Date: 2022-06-13 14:36:18
- * @LastEditTime: 2022-09-29 10:44:44
+ * @LastEditTime: 2022-10-04 13:10:24
  * @LastEditors: lmk
- * @Description: web3 site and extension site
+ * @Description: extension site
  */
 import { getCategory, getData } from "@/api/extensions";
 import Loading from "@/components/pageLoading";
