@@ -1,11 +1,10 @@
 /*
  * @Author: lmk
  * @Date: 2022-06-13 15:02:32
- * @LastEditTime: 2022-09-09 10:19:15
+ * @LastEditTime: 2022-09-28 17:37:13
  * @LastEditors: lmk
  * @Description: 
  */
-import websiteJson from '@/pages/home/website.json';
 
 export function urlToJson(url = window.location.href) {
   let obj:{[key:string]:any} = {},
@@ -44,28 +43,5 @@ export function isMisesBrowser() {
     -1
   );
 }
-function sleep(ms: number) {
-  return new Promise<void>((resolve, reject) => {
-    setTimeout(() => {
-      resolve()
-    }, ms);
-  })
-}
-// 临时的
-export async function getData<T>({pageNumber, pageSize}:{pageNumber: number, pageSize: number}={pageNumber:1, pageSize: 10}): Promise<{
-  total: number;
-  pageNumber: number;
-  pageSize: number;
-  records: T[];
-}>{
-  const endNumber = pageSize * pageNumber
-  const startNumber = (pageNumber - 1) * pageSize
-  const newData = [...websiteJson]
-  await sleep(200)
-  return {
-    total: websiteJson.length,
-    pageNumber,
-    pageSize,
-    records: newData.slice(startNumber, endNumber) as unknown as T[]
-  }
-}
+export const web3sitesCacheKey = 'web3siteCategoryCache'
+export const extensionCacheKey = 'extensionCategoryCache'

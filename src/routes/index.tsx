@@ -1,13 +1,13 @@
 /*
  * @Author: lmk
  * @Date: 2022-05-26 12:28:24
- * @LastEditTime: 2022-09-14 18:00:52
+ * @LastEditTime: 2022-09-26 15:01:41
  * @LastEditors: lmk
  * @Description: 
  */
 import React from 'react'
 import { Navigate, useRoutes } from 'react-router-dom'
-import { Home } from '@/pages'
+import { Web3site,Extensions } from '@/pages'
 import Loading from '@/components/pageLoading'
 type CutonFallBackT =
   | boolean
@@ -29,7 +29,11 @@ const Routes = () => {
   const RouterList = useRoutes([
   {
     path: '/',
-    element: SuspenseWrapper(Home),
+    element: SuspenseWrapper(Web3site),
+  },
+  {
+    path: '/extensions',
+    element: SuspenseWrapper(Extensions),
   },
   { path: '*', element: <Navigate to="/" replace /> }
   ])

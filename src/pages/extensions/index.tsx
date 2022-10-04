@@ -1,16 +1,17 @@
 /*
  * @Author: lmk
  * @Date: 2022-06-13 14:36:18
- * @LastEditTime: 2022-09-21 17:42:52
+ * @LastEditTime: 2022-09-29 10:44:44
  * @LastEditors: lmk
  * @Description: web3 site and extension site
  */
-import { getCategory, getData } from "@/api/web3sites";
+import { getCategory, getData } from "@/api/extensions";
 import Loading from "@/components/pageLoading";
+import { extensionCacheKey } from "@/utils";
 import { useThrottleFn } from "ahooks";
 import { Image, InfiniteScroll, List, NavBar, Popup, PullToRefresh, Tabs } from "antd-mobile";
 import React, { useEffect, useRef, useState } from "react";
-import "./home.less";
+import "./index.less";
 export interface websiteParams {
   "title": string;
   "url": string;
@@ -85,7 +86,7 @@ const Home = () => {
     setcategory(res)
   }
   useEffect(() => {
-    const getCategoryCache = localStorage.getItem('category')
+    const getCategoryCache = localStorage.getItem(extensionCacheKey)
     let localCategoryCache: categoryParams[] = []
     if(getCategoryCache){
       localCategoryCache = JSON.parse(getCategoryCache)
@@ -95,7 +96,7 @@ const Home = () => {
       if (Array.isArray(res) && res.length > 0) {
         if(Array.isArray(res) && JSON.stringify(res) !== getCategoryCache){
           // update category cache
-          localStorage.setItem('category', JSON.stringify(res))
+          localStorage.setItem(extensionCacheKey, JSON.stringify(res))
           if(localCategoryCache.length===0 || localCategoryCache[0]?.id!==res[0].id){
             setcategoryLayout(res)
           }
@@ -206,21 +207,32 @@ const Home = () => {
       ...categoryItem,
     }])
   }
-  const defaultTop = 46;
-  const headerHeight = 50;
+  const defaultTop = 0;
+  const headerHeight = 46;
   const [top,setTop] = useState<number>(defaultTop)
   const toggleVisible = ()=>{
-    const position = window.scrollY<headerHeight ? defaultTop + (headerHeight - window.scrollY) : defaultTop
+    const position = window.scrollY<headerHeight ? headerHeight - window.scrollY : defaultTop
     setTop(position)
     setVisible(!visible)
   }
   if (!activeKey) return <Loading />
-
+  const Footer = ()=>{
+    return <div className="text-center m-25">
+      <p className="footer-title">To load more extensions</p>
+      <p className="flex items-center justify-center">
+        <a 
+          href="https://chrome.google.com/webstore/category/extensions" 
+          target="_blank" 
+          rel="noreferrer" className="go-to-chrome">Go to Chrome Web Store</a>
+        <Image src="/images/more@2x.png" width={6} height={10}/>
+      </p>
+    </div>
+  }
   return (
     <div className="container">
       <div className="top-bar">
         <div className="header">
-          <NavBar backArrow={false}>Web3 Sites</NavBar>
+          <NavBar backArrow={false}>Extensions</NavBar>
         </div>
       </div>
 
@@ -265,7 +277,7 @@ const Home = () => {
                           <Image src={val.logo} alt={val.title} width={40} height={40} fit="contain" style={{ borderRadius: '50px' }} />
                         </div>
                         <div className="list-item-content">
-                          <span>{val.title}</span>
+                          <span className="block truncate">{val.title}</span>
                           {val.desc && <p className="desc">{val.desc}</p>}
                         </div>
                       </a>
@@ -276,6 +288,7 @@ const Home = () => {
             })}
           </List>
           {hasMore && <InfiniteScroll loadMore={() => loadMore()} hasMore={hasMore} />}
+          {!hasMore && <Footer />}
         </PullToRefresh>
       </div>
       <Popup
