@@ -1,7 +1,7 @@
 /*
  * @Author: lmk
  * @Date: 2022-06-13 14:36:18
- * @LastEditTime: 2022-10-04 13:10:24
+ * @LastEditTime: 2022-10-14 14:59:30
  * @LastEditors: lmk
  * @Description: extension site
  */
@@ -19,6 +19,10 @@ export interface websiteParams {
   "logo": string;
   "website_category_id": string;
   "desc": string;
+  'subcategory': categoryParams;
+  'subcategory_id': string;
+  'list': Array<websiteParams>;
+
 }
 interface categoryParams {
   id: string;
@@ -26,11 +30,26 @@ interface categoryParams {
   name: string;
   shorter_name: string;
 }
+interface categoryListItem {
+  id: string;
+  title: string;
+  list: websiteParams[]
+}
 interface categoryListType extends categoryParams {
   pageNum: number;
   hasMore: boolean;
   currentKeyIndex: number;
-  list?: Array<websiteParams>;
+  list: Array<categoryListItem>;
+}
+const defaultCategory = {
+  name:'Other',
+  id:'-9999',
+  type_string: 'extension', 
+  shorter_name: ''
+}
+const defalutParams = {
+  hasMore: true,
+  pageNum: 1,
 }
 const Home = () => {
   const [category, setcategory] = useState<categoryParams[]>([]);
@@ -45,11 +64,7 @@ const Home = () => {
   const [isDisabled, setIsDisabled] = useState<boolean>(false)
   const [visible, setVisible] = useState<boolean>(false)
   const topBarHeight = 97
-  const pageSize = 30;
-  const defalutParams = {
-    hasMore: true,
-    pageNum: 1,
-  }
+  const pageSize = 200;
   const { run: handleScroll } = useThrottleFn(() => {
     let currentKey = category[0].id
     for (const item of category) {
@@ -81,7 +96,8 @@ const Home = () => {
     setcategoryListParams([{
       ...defalutParams,
       currentKeyIndex: 0,
-      ...res[0]
+      ...res[0],
+      list: []
     }])
     setcategory(res)
   }
@@ -101,8 +117,6 @@ const Home = () => {
             setcategoryLayout(res)
           }
         }
-        
-        // setcategoryLayout(res)
       }
     })
     // eslint-disable-next-line
@@ -115,13 +129,33 @@ const Home = () => {
     }
     // eslint-disable-next-line
   }, [])
-
-  const loadMore = async (id?: string) => {
-    if (isLoading) return;
-    setIsLoading(true)
+  const getCurrentCategary = (id?: string) => {
     const website_category_id = id || activeRequestKey!
     const currentCategaryIndex = categoryListParams.findIndex(item => item.id === website_category_id)
     const currentCategary = categoryListParams[currentCategaryIndex];
+    return {
+      currentCategary,
+      website_category_id,
+      currentCategaryIndex
+    };
+  }
+  const setNextCategoryItem = (index: number) =>{
+    const nextCategoryItem = category[index];
+    setactiveRequestKey(nextCategoryItem.id);
+    const hasActiveCategory = categoryListParams.some(val => val.id === nextCategoryItem.id)
+    if (!hasActiveCategory) {
+      categoryListParams.push({
+        ...nextCategoryItem,
+        ...defalutParams,
+        currentKeyIndex: index,
+        list: []
+      })
+    }
+  }
+  const loadMore = async (id?: string) => {
+    if (isLoading) return;
+    setIsLoading(true)
+    const {currentCategary,website_category_id,currentCategaryIndex} = getCurrentCategary(id);
     return getData({
       page_size: pageSize,
       page_num: currentCategary.pageNum,
@@ -134,23 +168,11 @@ const Home = () => {
         // get next category
         const index = currentCategary.currentKeyIndex + 1;
         const nextCategoryItem = category[index];
-        if (!nextCategoryItem) setHasMore(false);
-        if (nextCategoryItem) {
-          setactiveRequestKey(nextCategoryItem.id);
-          const hasActiveCategory = categoryListParams.some(val => val.id === nextCategoryItem.id)
-          if (!hasActiveCategory) {
-            categoryListParams.push({
-              ...nextCategoryItem,
-              ...defalutParams,
-              currentKeyIndex: index
-            })
-          }
-
-        }
+        !nextCategoryItem ? setHasMore(false) : setNextCategoryItem(index)
       }
       renderList(res, currentCategaryIndex)
-
-    }).finally(() => {
+      setIsLoading(false)
+    }).catch(() => {
       setIsLoading(false)
     })
   }
@@ -159,18 +181,30 @@ const Home = () => {
     list.forEach((val: websiteParams) => {
       const item = categoryListParams[currentCategaryIndex];
       if (item) {
-        item.list = item.list || [];
-        item.list.push(val);
+        if(!Array.isArray(item.list)) item.list = [];
+        const getFormatItem = returnCategoryList(item.list,{ ...val, subcategory:val.subcategory || defaultCategory })
+        const hasCategoryIndex = item.list.findIndex(c=>c.id===getFormatItem.id);
+        hasCategoryIndex>-1 ? item.list[hasCategoryIndex] = getFormatItem : item.list.push(getFormatItem);
       }
+      // console.log(item)
     })
     setcategoryListParams([...categoryListParams])
   }
+  const returnCategoryList = (itemList:categoryListItem[],val:websiteParams) => {
+    const findItem = itemList?.find(item => item.id === val.subcategory.id);
+    if(findItem){
+      findItem.list.push(val);
+      return findItem
+    }
+    return {
+      id: val.subcategory.id,
+      title: val.subcategory.name,
+      list:[val]
+    }
+  }
   const onRefresh = async () => {
-    // if(isLoading) return;
-    // setIsLoading(true)
     const preCategory = category[activeKeyIndex - 1]
     if (preCategory) {
-      // if (!hasMore) setHasMore(true);
       setactiveKey(preCategory.id)
       setactiveRequestKey(preCategory.id)
       findActiveKeyIndex(preCategory.id)
@@ -178,6 +212,7 @@ const Home = () => {
         ...defalutParams,
         currentKeyIndex: activeKeyIndex - 1,
         ...preCategory,
+        list:[]
       })
       setcategoryListParams([...categoryListParams])
       loadMore(preCategory.id)
@@ -205,6 +240,7 @@ const Home = () => {
       ...defalutParams,
       currentKeyIndex: index,
       ...categoryItem,
+      list: []
     }])
   }
   const defaultTop = 0;
@@ -215,7 +251,7 @@ const Home = () => {
     setTop(position)
     setVisible(!visible)
   }
-  if (!activeKey) return <Loading />
+
   const Footer = ()=>{
     return <div className="text-center m-25">
       <p className="footer-title">To load more extensions</p>
@@ -228,6 +264,14 @@ const Home = () => {
       </p>
     </div>
   }
+
+  const SubTitle = (props:{item: categoryListType,val: categoryListItem})=>{
+    const {item,val} = props;
+    return item.list?.length===1 && val.id===defaultCategory.id ? null : <span className="sub-category-title">{val.title}</span>
+  }
+
+  if (!activeKey) return <Loading />
+
   return (
     <div className="container">
       <div className="top-bar">
@@ -251,13 +295,13 @@ const Home = () => {
             ))
           }</Tabs>
         <div className="show-menu"  onClick={toggleVisible}>
-          <Image src="./images/open.png"
-          lazy={false}
-          width={12} height={12} />
+          <Image 
+            src="./images/open.png"
+            lazy={false}
+            width={12} height={12} />
         </div>
       </div>
       <div className="main" id="main" ref={mainElementRef}>
-
         <PullToRefresh
           onRefresh={onRefresh}
           disabled={activeKeyIndex === 0 || isDisabled}
@@ -269,21 +313,26 @@ const Home = () => {
             {categoryListParams.map((item) => {
               return <div key={item.id} className="category-item">
                 <h3 id={`anchor-${item.id}`} className="main-title">{item.name}</h3>
-                <div className="website-container">
-                  {
-                    item.list?.map((val, index) => {
-                      return <a key={index} className="list-item" href={val.url} target="_blank" rel="noreferrer">
-                        <div className="list-item-logo">
-                          <Image src={val.logo} alt={val.title} width={40} height={40} fit="contain" style={{ borderRadius: '50px' }} />
-                        </div>
-                        <div className="list-item-content">
-                          <span className="block truncate">{val.title}</span>
-                          {val.desc && <p className="desc">{val.desc}</p>}
-                        </div>
-                      </a>
-                    })
-                  }
-                </div>
+                {
+                  item.list?.map((val, index) => {
+                    return <div className="sub-category" key={index}>
+                      <SubTitle item={item} val={val}/>
+                      <div className="website-container">
+                        {
+                          val.list.map((c,i)=>(<a key={i} className="list-item" href={c.url} target="_blank" rel="noreferrer">
+                          <div className="list-item-logo">
+                            <Image src={c.logo} alt={val.title} width={40} height={40} fit="contain" style={{ borderRadius: '50px' }} />
+                          </div>
+                          <div className="list-item-content">
+                            <span className="block truncate">{c.title}</span>
+                            {c.desc && <p className="desc">{c.desc}</p>}
+                          </div>
+                        </a>))
+                        }
+                      </div>
+                    </div>;
+                  })
+                }
               </div>;
             })}
           </List>

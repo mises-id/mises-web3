@@ -1,7 +1,7 @@
 /*
  * @Author: lmk
  * @Date: 2022-06-13 14:36:18
- * @LastEditTime: 2022-09-28 17:37:48
+ * @LastEditTime: 2022-10-14 14:34:08
  * @LastEditors: lmk
  * @Description: web3 site and extension site
  */
@@ -125,7 +125,7 @@ const Home = () => {
     return getData({
       page_size: pageSize,
       page_num: currentCategary.pageNum,
-      website_category_id
+      website_category_id,
     }).then((res: any) => {
       const hasMore = !(res.length < pageSize);
       currentCategary.hasMore = hasMore;
@@ -145,12 +145,11 @@ const Home = () => {
               currentKeyIndex: index
             })
           }
-
         }
       }
       renderList(res, currentCategaryIndex)
-
-    }).finally(() => {
+      setIsLoading(false)
+    }).catch(() => {
       setIsLoading(false)
     })
   }
@@ -170,17 +169,18 @@ const Home = () => {
     // setIsLoading(true)
     const preCategory = category[activeKeyIndex - 1]
     if (preCategory) {
+      const categoryId = preCategory.id
       // if (!hasMore) setHasMore(true);
-      setactiveKey(preCategory.id)
-      setactiveRequestKey(preCategory.id)
-      findActiveKeyIndex(preCategory.id)
+      setactiveKey(categoryId)
+      setactiveRequestKey(categoryId)
+      findActiveKeyIndex(categoryId)
       categoryListParams.unshift({
         ...defalutParams,
         currentKeyIndex: activeKeyIndex - 1,
         ...preCategory,
       })
       setcategoryListParams([...categoryListParams])
-      loadMore(preCategory.id)
+      loadMore(categoryId)
       return true
     } else {
       setIsLoading(false)
