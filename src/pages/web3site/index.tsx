@@ -1,7 +1,7 @@
 /*
  * @Author: lmk
  * @Date: 2022-06-13 14:36:18
- * @LastEditTime: 2022-10-14 14:34:08
+ * @LastEditTime: 2022-10-14 15:10:33
  * @LastEditors: lmk
  * @Description: web3 site and extension site
  */
@@ -45,7 +45,7 @@ const Home = () => {
   const [isDisabled, setIsDisabled] = useState<boolean>(false)
   const [visible, setVisible] = useState<boolean>(false)
   const topBarHeight = 97
-  const pageSize = 30;
+  const pageSize = 200;
   const defalutParams = {
     hasMore: true,
     pageNum: 1,
