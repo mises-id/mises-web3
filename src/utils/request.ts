@@ -1,7 +1,7 @@
 /*
  * @Author: lmk
  * @Date: 2022-05-05 20:50:25
- * @LastEditTime: 2022-09-19 11:27:12
+ * @LastEditTime: 2022-10-14 11:42:19
  * @LastEditors: lmk
  * @Description:
  */
@@ -14,7 +14,6 @@ const isProd = process.env.REACT_APP_NODE_ENV==='production'
 // if(istest){
 //   headers['Mises-Env'] = 'development'
 // }
-console.log(process.env)
 const baseURL = isProd ? 'https://api.alb.mises.site/api/v1/' : 'https://api.test.mises.site/api/v1/'
 const request = axios.create({
   headers,
