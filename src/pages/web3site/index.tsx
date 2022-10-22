@@ -1,7 +1,7 @@
 /*
  * @Author: lmk
  * @Date: 2022-06-13 14:36:18
- * @LastEditTime: 2022-10-14 15:10:33
+ * @LastEditTime: 2022-10-22 09:08:51
  * @LastEditors: lmk
  * @Description: web3 site and extension site
  */
@@ -127,7 +127,7 @@ const Home = () => {
       page_num: currentCategary.pageNum,
       website_category_id,
     }).then((res: any) => {
-      const hasMore = !(res.length < pageSize);
+      const hasMore = Array.isArray(res) ? !(res?.length < pageSize) : false;
       currentCategary.hasMore = hasMore;
       if (hasMore) currentCategary.pageNum = currentCategary.pageNum + 1;
       if (!hasMore && !id) {
