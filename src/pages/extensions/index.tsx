@@ -174,6 +174,7 @@ const Home = () => {
       setIsLoading(false)
     }).catch(() => {
       setIsLoading(false)
+      throw new Error('mock request failed')
     })
   }
 
