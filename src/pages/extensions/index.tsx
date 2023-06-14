@@ -9,7 +9,7 @@ import { getCategory, getData } from "@/api/extensions";
 import Loading from "@/components/pageLoading";
 import { extensionCacheKey } from "@/utils";
 import { useThrottleFn } from "ahooks";
-import { Image, InfiniteScroll, List, NavBar, Popup, PullToRefresh, Tabs } from "antd-mobile";
+import { Button, Image, InfiniteScroll, List, NavBar, Popup, PullToRefresh, Tabs } from "antd-mobile";
 import React, { useEffect, useRef, useState } from "react";
 import "./index.less";
 export interface websiteParams {
@@ -273,11 +273,19 @@ const Home = () => {
 
   if (!activeKey) return <Loading />
 
+  const goToWebStore = () => {
+    window.open('https://chrome.google.com/webstore/category/extensions', 'target=_blank')
+  }
   return (
     <div className="container">
       <div className="top-bar">
         <div className="header">
-          <NavBar backArrow={false}>Extensions</NavBar>
+          <NavBar backArrow={false} right={<Button size="mini" shape="rounded" onClick={goToWebStore}>
+            <div className="flex gap-1 items-center">
+              <Image src="./images/chrome.png" width={14} height={14} placeholder=""/>
+              <span className="right-web-store">Web Store</span>
+            </div>
+          </Button>}>Extensions</NavBar>
         </div>
       </div>
 
@@ -299,6 +307,7 @@ const Home = () => {
           <Image 
             src="./images/open.png"
             lazy={false}
+            placeholder=""
             width={12} height={12} />
         </div>
       </div>

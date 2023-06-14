@@ -217,10 +217,26 @@
   justify-content:center;
 }
 
+.gap-4{
+  gap:16px;
+}
+
+.gap-2{
+  gap:8px;
+}
+
+.gap-1{
+  gap:4px;
+}
+
 .truncate{
   overflow:hidden;
   text-overflow:ellipsis;
   white-space:nowrap;
+}
+
+.rounded{
+  border-radius:4px;
 }
 
 .text-center{
