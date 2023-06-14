@@ -282,7 +282,7 @@ const Home = () => {
         <div className="header">
           <NavBar backArrow={false} right={<Button size="mini" shape="rounded" onClick={goToWebStore}>
             <div className="flex gap-1 items-center">
-              <Image src="./images/chrome.png" width={14} height={14}/>
+              <Image src="./images/chrome.png" width={14} height={14} placeholder=""/>
               <span className="right-web-store">Web Store</span>
             </div>
           </Button>}>Extensions</NavBar>
@@ -307,6 +307,7 @@ const Home = () => {
           <Image 
             src="./images/open.png"
             lazy={false}
+            placeholder=""
             width={12} height={12} />
         </div>
       </div>
