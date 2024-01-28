@@ -7,6 +7,7 @@
  */
 import { getCategory, getData } from "@/api/extensions";
 import Loading from "@/components/pageLoading";
+import SearchComponent from "@/components/search";
 import { extensionCacheKey } from "@/utils";
 import { useThrottleFn } from "ahooks";
 import { Button, Image, InfiniteScroll, List, NavBar, Popup, PullToRefresh, Tabs } from "antd-mobile";
@@ -286,6 +287,7 @@ const Home = () => {
               <span className="right-web-store">Web Store</span>
             </div>
           </Button>}>Extensions</NavBar>
+          <SearchComponent/>
         </div>
       </div>
 

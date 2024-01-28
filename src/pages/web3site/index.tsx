@@ -10,7 +10,7 @@ import Loading from "@/components/pageLoading";
 import SearchComponent from "@/components/search";
 import { web3sitesCacheKey } from "@/utils";
 import { useThrottleFn } from "ahooks";
-import { Image, InfiniteScroll, List, Popup, PullToRefresh, Tabs } from "antd-mobile";
+import { NavBar, Image, InfiniteScroll, List, Popup, PullToRefresh, Tabs } from "antd-mobile";
 import React, { useEffect, useRef, useState } from "react";
 import "./index.less";
 export interface websiteParams {
@@ -226,12 +226,15 @@ const Home = () => {
           <NavBar backArrow={false}>Mises Search</NavBar>
         </div> */}
         
-      <div className='flex justify-between items-center px-10 py-10' style={{height: 40}}>
+      {/* <div className='flex justify-between items-center px-10 py-10' style={{height: 40}}>
         <div className="relative flex">
           <p className='swap-title'><span className='mises-title'>Mises</span> <span>Search</span></p>
           <div><span className="beta-tag">BETA</span></div>
         </div>
-      </div>
+      </div> */}
+        <div className="header">
+          <NavBar backArrow={false}>Web3 Sites</NavBar>
+        </div>
 
         <SearchComponent/>
       </div>
