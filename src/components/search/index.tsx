@@ -6,7 +6,7 @@ const SearchComponent: React.FC = () => {
 
   const fetchData = () => {
     // window.location.href = `https://www.google.com/search?q=${searchTerm}`;
-    window.location.href = `https://portal.gosrch.co/search/?search_term=${searchTerm}&brand=B2`;
+    window.location.href = `https://search.test.mises.site/?q=${searchTerm}`;
     return;
   };
 
