@@ -1,42 +1,4 @@
 import "./index.less";
-// import React, { useState } from 'react';
-
-// const SearchComponent: React.FC = () => {
-//   const [searchTerm, setSearchTerm] = useState<string>('');
-
-//   const fetchData = () => {
-//     window.location.href = `https://search.test.mises.site/?q=${searchTerm}`;
-//     return;
-//   };
-
-//   return (
-//     <div className="outer-search-container">
-//       <div className="flex items-center justify-center">
-//         <div className="inner-search-container">
-//           <input
-//             type="text"
-//             value={searchTerm}
-//             onChange={(e) => setSearchTerm(e.target.value)}
-//             onKeyUp={(e) => {if(e.key === "Enter"){fetchData()}}}
-//             placeholder="Search the web..."
-//             className="margin-right-10 flex-grow width-70 px-4 py-2 border border-gray-300 rounded-l-md rounded-r-md focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-200"
-//           />
-//           <button
-//             onClick={() => searchTerm !== '' && fetchData()}
-//             className="px-4 py-2 bg-blue-500 text-white hover:bg-blue-600 rounded-l-md rounded-r-md flex-grow"
-//           >
-//             Search
-//           </button>
-//         </div>   
-//       </div>
-//     </div>
-//   );
-   
-   
-// };
-
-// export default SearchComponent;
-
 import React, { useState } from 'react';
 import { SearchBar, Button } from 'antd-mobile';
 
@@ -50,7 +12,7 @@ const SearchComponent: React.FC = () => {
   const onSubmit = () => {
     const keyword = searchTerm.trim();
     if(keyword){
-      window.location.href = `https://search.test.mises.site/?q=${keyword}`;
+      window.location.href = `https://search.mises.site/?q=${keyword}`;
       return;
     }
   };
